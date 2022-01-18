@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('department')->nullable();
 
             $table->foreignId('department_id')
+                ->nullable()
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
