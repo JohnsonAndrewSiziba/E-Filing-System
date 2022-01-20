@@ -29,6 +29,7 @@ class CreateFilesTable extends Migration
                 ->onDelete('cascade');
 
             $table->string('description');
+            $table->double('file_size')->nullable();
             $table->string('file_path');
             $table->string('file_type')->nullable();
             $table->dateTime('opened_time');

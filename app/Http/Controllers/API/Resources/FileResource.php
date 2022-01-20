@@ -25,7 +25,7 @@ class FileResource extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

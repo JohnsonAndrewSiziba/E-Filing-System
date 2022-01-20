@@ -13,6 +13,7 @@ class LogoutController extends Controller
         auth()->user()->tokens()->delete();
 
         return [
+            'status' => true,
             'message' => 'You are logged out'
         ];
     }

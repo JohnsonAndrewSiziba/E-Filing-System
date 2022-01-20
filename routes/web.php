@@ -18,3 +18,5 @@ Route::get('/', function () {
     return "<h1 style='text-align: center; margin-top: 100px'>There is nothing here </h1>"
         . "<p style='text-align: center;'>&copy Johnson A. Siziba, 2022</p>";
 });
+
+

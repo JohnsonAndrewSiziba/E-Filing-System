@@ -18,10 +18,14 @@ class FileShareCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CloneOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkDeleteOperation;
 
     /**
-     * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     * Configure the CrudPanel object. Apply setptings to all operations.
+     *
      * @return void
      */
     public function setup()
@@ -33,7 +37,7 @@ class FileShareCrudController extends CrudController
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
@@ -49,13 +53,13 @@ class FileShareCrudController extends CrudController
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
          */
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -73,13 +77,13 @@ class FileShareCrudController extends CrudController
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
+         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
          */
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */

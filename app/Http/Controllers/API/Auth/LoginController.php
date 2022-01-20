@@ -36,10 +36,16 @@ class LoginController extends Controller
         ]);
 
         if (!Auth::attempt($attr)) {
-            return $this->error('Email or password is incorrect.', 401);
+            return [
+                'success' => false,
+                'message' => 'Email or password is incorrect.',
+                'status' => 401
+            ];
         }
 
         return [
+            'success' => true,
+            'message' => 'You have successfully logged in.',
             'token' => auth()->user()->createToken('API Token')->plainTextToken
         ];
     }
