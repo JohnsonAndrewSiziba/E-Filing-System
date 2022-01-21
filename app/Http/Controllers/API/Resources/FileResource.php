@@ -21,11 +21,14 @@ class FileResource extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        dd("Food");
+        $imageName = $request->file->getClientOriginalName();
+        $request->file->move(public_path('images'), $imageName);
 
+        return response()->json(['success'=>'You have successfully upload file.']);
     }
 
     /**
