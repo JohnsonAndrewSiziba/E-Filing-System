@@ -40,6 +40,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::post('/files_share', [\App\Http\Controllers\API\ShareFile::class, 'index']);
 
+    Route::post('/recent_files', [\App\Http\Controllers\API\RecentFiles::class, 'index']);
+    Route::post('/shared_files', [\App\Http\Controllers\API\SharedFiles::class, 'index']);
+    Route::post('/starred_files', [\App\Http\Controllers\API\StarredFiles::class, 'index']);
+    Route::post('/trashed_files', [\App\Http\Controllers\API\TrashedFiles::class, 'index']);
+
 });
 
 
