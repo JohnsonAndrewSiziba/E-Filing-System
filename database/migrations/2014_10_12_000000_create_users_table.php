@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->integer('access_level'); // 1: User, 2: Department Head, 3: Manager, 4: Admin, 100: GOD
+            $table->smallInteger('access_level')->default(1); // 1: User, 2: Department Head, 3: Manager, 4: Admin, 100: GOD
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

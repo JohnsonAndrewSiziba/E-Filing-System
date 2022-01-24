@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\API\Resources;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserResource extends Controller
+class UsersResource extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class UserResource extends Controller
      */
     public function index()
     {
-        //
+        return User::select('id','name')->get();
     }
 
     /**

@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-//header parameters to allow external server to access
-//header('Access-Control-Allow-Origin: *');
-//header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
-//header('Access-Control-Allow-Headers: Content-Type, X-Auth-Token, Origin, Authorization, Accept, X-Requested-With');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -38,6 +34,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         return auth()->user();
     });
     Route::get('/logout', [\App\Http\Controllers\API\Auth\LogoutController::class, 'logout']);
+    Route::resource('files', \App\Http\Controllers\API\Resources\FileResource::class);
+    Route::resource('users', \App\Http\Controllers\API\Resources\UsersResource::class);
+
+
+    Route::post('/files_share', [\App\Http\Controllers\API\ShareFile::class, 'index']);
+
 });
 
-Route::resource('files', \App\Http\Controllers\API\Resources\FileResource::class);
+
