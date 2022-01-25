@@ -40,10 +40,22 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::post('/files_share', [\App\Http\Controllers\API\ShareFile::class, 'index']);
 
-    Route::post('/recent_files', [\App\Http\Controllers\API\RecentFiles::class, 'index']);
-    Route::post('/shared_files', [\App\Http\Controllers\API\SharedFiles::class, 'index']);
-    Route::post('/starred_files', [\App\Http\Controllers\API\StarredFiles::class, 'index']);
-    Route::post('/trashed_files', [\App\Http\Controllers\API\TrashedFiles::class, 'index']);
+    Route::get('/recent_files', [\App\Http\Controllers\API\RecentFiles::class, 'index']);
+    Route::get('/recent_count', [\App\Http\Controllers\API\RecentFiles::class, 'count']);
+
+    Route::get('/shared_files', [\App\Http\Controllers\API\SharedFiles::class, 'index']);
+    Route::get('/shared_count', [\App\Http\Controllers\API\SharedFiles::class, 'count']);
+
+    Route::get('/starred_files', [\App\Http\Controllers\API\StarredFiles::class, 'index']);
+    Route::get('/starred_count', [\App\Http\Controllers\API\StarredFiles::class, 'count']);
+
+    Route::get('/trashed_files', [\App\Http\Controllers\API\TrashedFiles::class, 'index']);
+    Route::get('/trashed_count', [\App\Http\Controllers\API\TrashedFiles::class, 'count']);
+
+    Route::post('/file_star', [\App\Http\Controllers\API\StarFile::class, 'index']);
+    Route::post('/file_delete', [\App\Http\Controllers\API\DeleteFile::class, 'index']);
+
+
 
 });
 

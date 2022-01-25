@@ -17,7 +17,8 @@ class FileResource extends Controller
      */
     public function index()
     {
-         return auth()->user()->files;
+        $user = auth()->user();
+        return File::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
     }
 
     /**
@@ -62,9 +63,10 @@ class FileResource extends Controller
      */
     public function show($id)
     {
-        $fileName = File::find($id)->name;
-        $user = auth()->user();
-        return asset('/files_storage/' . $user->email . '/' .$fileName);
+        $file= File::find($id);
+        $email = $file->user->email;
+        $fileName = $file->name;
+        return asset('/files_storage/' . $email . '/' .$fileName);
     }
 
     /**
