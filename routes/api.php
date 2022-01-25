@@ -21,6 +21,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+Route::get('/current_version', function (Request $request) {
+    return [
+        "version" => "1.1.0",
+        "tba" => false,
+        "date" => "25 January 2022"
+    ];
+});
+
+
 //register new user
 //Route::post('/create-account', [AuthenticationController::class, 'createAccount']);
 
