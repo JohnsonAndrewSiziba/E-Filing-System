@@ -19,4 +19,7 @@ Route::group([
     Route::crud('department', 'DepartmentCrudController');
     Route::crud('file', 'FileCrudController');
     Route::crud('file-share', 'FileShareCrudController');
+    Route::crud('login-acation', 'LoginAcationCrudController');
+    Route::crud('share-from', 'ShareFromCrudController');
+    Route::crud('share-to', 'ShareToCrudController');
 }); // this should be the absolute last line of this file
