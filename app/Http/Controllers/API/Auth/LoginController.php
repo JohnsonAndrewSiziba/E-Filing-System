@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\LoginAcation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,10 @@ class LoginController extends Controller
                 'status' => 401
             ];
         }
+
+        $act = new LoginAcation();
+        $act->email = $request->email;
+        $act->save();
 
         return [
             'success' => true,
