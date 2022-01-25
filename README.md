@@ -6,3 +6,7 @@ php artisan backpack:crud Department
 
 
 git remote add live ssh://ender@137.184.71.82/var/repo/e_files.git
+
+git remote add live ssh://ender@137.184.71.82/home/ender/repo/e_files.git
+
+food
