@@ -11,7 +11,16 @@ class SharedFiles extends Controller
     public function index(){
         $user = auth()->user();
 
-        return File::whereRelation('shares', 'share_type', '=', 'to')->whereRelation('shares', 'user_id', '=', $user->id)->with('user')->get();
+
+        return File::whereRelation('sharesTo', 'user_id', '=', [$user->id, 2])->with('sharesTo')->with('user')
+            ->get()
+            ->sortByDesc('sharesTo.created_at', 'desc');
+
+//        return  $user->sharesTo->files()->with('user')->get();
+
+
+
+        //return File::whereRelation('shares', 'share_type', '=', 'to')->whereRelation('shares', 'user_id', '=', $user->id)->with('user')->get();
     }
 
     public function count(){

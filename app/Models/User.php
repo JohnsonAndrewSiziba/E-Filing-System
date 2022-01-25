@@ -55,8 +55,13 @@ class User extends Authenticatable
         return $this->hasMany(File::class);
     }
 
-    public function shares()
+    public function sharesFrom()
     {
-        return $this->hasMany(FileShare::class);
+        return $this->hasMany(ShareFrom::class);
+    }
+
+    public function sharesTo()
+    {
+        return $this->hasMany(ShareTo::class);
     }
 }

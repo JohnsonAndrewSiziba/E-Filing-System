@@ -4,13 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class File extends Model
+class ShareTo extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
-    use SoftDeletes;
 
     protected $guarded = [];
 
@@ -19,14 +17,8 @@ class File extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function sharesFrom()
+    public function files()
     {
-        return $this->hasMany(ShareFrom::class);
+        return $this->belongsTo(File::class);
     }
-
-    public function sharesTo()
-    {
-        return $this->hasMany(ShareTo::class);
-    }
-
 }
