@@ -12,9 +12,8 @@ class SharedFiles extends Controller
         $user = auth()->user();
 
 
-        return File::whereRelation('sharesTo', 'user_id', '=', [$user->id, 2])->with('sharesTo')->with('user')
-            ->get()
-            ->sortByDesc('sharesTo.created_at', 'desc');
+        return File::whereRelation('sharesTo', 'user_id', '=', $user->id)->with('sharesTo')->with('user')
+            ->get();
 
 //        return  $user->sharesTo->files()->with('user')->get();
 
