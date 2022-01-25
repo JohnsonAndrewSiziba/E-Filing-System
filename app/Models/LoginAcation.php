@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class LoginAcation extends Model
 {
     use HasFactory;
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+    protected $guarded = [];
 }
