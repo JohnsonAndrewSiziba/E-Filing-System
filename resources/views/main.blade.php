@@ -20,7 +20,7 @@
 
 
     <p>
-        Windows: <a download href="{{ asset('download/E-Files Setup 1.1.0.exe') }}">E-Files Setup 1.1.0.exe</a>
+        Windows: <a download href="{{ asset('download/e_files.exe') }}">E-Files Setup 1.1.0.exe</a>
     </p>
 </div>
 
